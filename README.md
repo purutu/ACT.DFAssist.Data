@@ -1,5 +1,5 @@
 # ACT.DFAssist.Data
 
 
-# ºôµåÇÒ¶§
-´©°ÙÆĞÅ°Áö Install-Package System.Data.SQLite
+# ë¹Œë“œí• ë•Œ
+ëˆ„ê²ŸíŒ¨í‚¤ì§€ Install-Package System.Data.SQLite ì¸ë° ì•ˆí•´ë„ ë ë“¯. ëˆ„ê²Ÿì´ ì•Œì•„ì„œ í•´ì¤Œ
