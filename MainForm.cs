@@ -35,6 +35,8 @@ namespace ACT.DFAssist.Data
 			//
 			ActiveControl = null;
 			SetStyle(ControlStyles.Selectable, false);
+
+			lstLang.SelectedIndex = 0;
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -191,6 +193,28 @@ namespace ACT.DFAssist.Data
 			var ds = _sk.QueryFate();
 			dgvQuery.AutoGenerateColumns = true;
 			dgvQuery.DataSource = ds.Tables[0];
+		}
+
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			var l = lstLang.SelectedItem.ToString();
+
+			SaveFileDialog dlg = new SaveFileDialog()
+			{
+				Filter = "Json (*.json)|*.json|Text (*.txt)|*.txt| All (*.*)|*.*",
+				InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+				AddExtension = true,
+				OverwritePrompt = false,
+				FileName = $"asst.{l}.json",
+			};
+
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				var s = _sk.BuildResult(l);
+				File.WriteAllText(dlg.FileName, s, Encoding.UTF8);
+
+				MessageBox.Show("작업 했슴미", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 		}
 	}
 }

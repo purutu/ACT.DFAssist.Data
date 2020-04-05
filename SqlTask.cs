@@ -321,5 +321,104 @@ namespace ACT.DFAssist.Data
 			var s = "select * from fate order by Area asc, Id asc";
 			return QueryQuery(s);
 		}
+
+		// 만들기
+		public string BuildResult(string lang)
+		{
+			StringBuilder sb = new StringBuilder();
+			string sql;
+			bool bp;
+
+			// 시작
+			sb.Append("{\n");
+
+			// 루렛
+			sb.Append("    \"roulettes\": {\n");
+
+			sql = $"select id, name{lang} from roulette order by id asc";
+			using (var cmd = new SQLiteCommand(sql, _conn))
+			{
+				using (var rdr = cmd.ExecuteReader())
+				{
+					bp = false;
+					while (rdr.Read())
+					{
+						if (bp) sb.Append(",\n");
+						sb.AppendFormat("        \"{0}\": \"{1}\"", rdr[0].ToString(), rdr[1].ToString());
+						bp = true;
+					}
+				}
+			}
+
+			sb.Append("\n    },\n");
+
+			// 인스턴스
+			sb.Append("    \"instances\": {\n");
+
+			sql = $"select id, name{lang} from instance order by id asc";
+			using (var cmd = new SQLiteCommand(sql, _conn))
+			{
+				using (var rdr = cmd.ExecuteReader())
+				{
+					bp = false;
+					while (rdr.Read())
+					{
+						if (bp) sb.Append(",\n");
+						sb.AppendFormat("        \"{0}\": \"{1}\"", rdr[0].ToString(), rdr[1].ToString());
+						bp = true;
+					}
+				}
+			}
+
+			sb.Append("\n    },\n");
+
+			// 에이리어와 페이트
+			List<KeyValuePair<string, string>> ares = new List<KeyValuePair<string, string>>();
+
+			sql = $"select id , name{lang} from area order by id asc";
+			using (var cmd = new SQLiteCommand(sql, _conn))
+			{
+				using (var rdr = cmd.ExecuteReader())
+				{
+					while (rdr.Read())
+						ares.Add(new KeyValuePair<string, string>(rdr[0].ToString(), rdr[1].ToString()));
+				}
+			}
+
+			sb.Append("    \"areas\": {\n");
+
+			foreach (var a in ares)
+			{
+				sb.AppendFormat("        \"{0}\": {{\n", a.Key);
+				sb.AppendFormat("            \"name\": \"{0}\",\n", a.Value);
+				sb.Append("            \"fates\": {\n");
+
+				sql = $"select id , name{lang} from fate where area={a.Key} order by id asc";
+				using (var cmd = new SQLiteCommand(sql, _conn))
+				{
+					using (var rdr = cmd.ExecuteReader())
+					{
+					bp = false;
+						while (rdr.Read())
+						{
+						if (bp) sb.Append(",\n");
+							sb.AppendFormat("                \"{0}\": \"{1}\"", rdr[0].ToString(), rdr[1].ToString());
+						bp = true;
+						}
+					}
+
+					sb.Append("\n            }\n");
+				}
+
+				sb.Append("        },\n");
+			}
+
+			sb.Append("    }\n");
+
+			//
+			sb.Append("}\n");
+
+			return sb.ToString();
+		}
 	}
 }

@@ -29,19 +29,20 @@
 		private void InitializeComponent()
 		{
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.btnSave = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.btnTest = new System.Windows.Forms.Button();
-			this.prgWorking = new System.Windows.Forms.ProgressBar();
-			this.btnReadGameData = new System.Windows.Forms.Button();
 			this.txtResult = new System.Windows.Forms.TextBox();
+			this.btnTest = new System.Windows.Forms.Button();
+			this.btnReadGameData = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.btmOpenDb = new System.Windows.Forms.Button();
+			this.prgWorking = new System.Windows.Forms.ProgressBar();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnQueryInstance = new System.Windows.Forms.Button();
 			this.btnQueryRoulette = new System.Windows.Forms.Button();
 			this.btnQueryArea = new System.Windows.Forms.Button();
 			this.btnQueryFate = new System.Windows.Forms.Button();
 			this.dgvQuery = new System.Windows.Forms.DataGridView();
-			this.btmOpenDb = new System.Windows.Forms.Button();
+			this.lstLang = new System.Windows.Forms.ListBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -67,30 +68,22 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 591);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
-			// btnSave
-			// 
-			this.btnSave.Location = new System.Drawing.Point(127, 3);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(95, 78);
-			this.btnSave.TabIndex = 1;
-			this.btnSave.Text = "내보내기";
-			this.btnSave.UseVisualStyleBackColor = true;
-			// 
 			// tableLayoutPanel2
 			// 
-			this.tableLayoutPanel2.ColumnCount = 7;
+			this.tableLayoutPanel2.ColumnCount = 8;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.Controls.Add(this.txtResult, 6, 0);
-			this.tableLayoutPanel2.Controls.Add(this.btnTest, 5, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btnReadGameData, 3, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btnSave, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btmOpenDb, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.lstLang, 5, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -99,23 +92,26 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(781, 84);
 			this.tableLayoutPanel2.TabIndex = 1;
 			// 
+			// txtResult
+			// 
+			this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtResult.BackColor = System.Drawing.Color.AntiqueWhite;
+			this.txtResult.Location = new System.Drawing.Point(438, 3);
+			this.txtResult.Multiline = true;
+			this.txtResult.Name = "txtResult";
+			this.txtResult.ReadOnly = true;
+			this.txtResult.Size = new System.Drawing.Size(213, 78);
+			this.txtResult.TabIndex = 4;
+			// 
 			// btnTest
 			// 
-			this.btnTest.Location = new System.Drawing.Point(358, 3);
+			this.btnTest.Location = new System.Drawing.Point(323, 3);
 			this.btnTest.Name = "btnTest";
-			this.btnTest.Size = new System.Drawing.Size(63, 51);
+			this.btnTest.Size = new System.Drawing.Size(63, 38);
 			this.btnTest.TabIndex = 2;
 			this.btnTest.Text = "이거슨 테스트!";
 			this.btnTest.UseVisualStyleBackColor = true;
 			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-			// 
-			// prgWorking
-			// 
-			this.prgWorking.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.prgWorking.Location = new System.Drawing.Point(3, 93);
-			this.prgWorking.Name = "prgWorking";
-			this.prgWorking.Size = new System.Drawing.Size(781, 24);
-			this.prgWorking.TabIndex = 2;
 			// 
 			// btnReadGameData
 			// 
@@ -127,16 +123,33 @@
 			this.btnReadGameData.UseVisualStyleBackColor = true;
 			this.btnReadGameData.Click += new System.EventHandler(this.btnReadGameData_Click);
 			// 
-			// txtResult
+			// btnSave
 			// 
-			this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtResult.BackColor = System.Drawing.Color.AntiqueWhite;
-			this.txtResult.Location = new System.Drawing.Point(565, 3);
-			this.txtResult.Multiline = true;
-			this.txtResult.Name = "txtResult";
-			this.txtResult.ReadOnly = true;
-			this.txtResult.Size = new System.Drawing.Size(213, 78);
-			this.txtResult.TabIndex = 4;
+			this.btnSave.Location = new System.Drawing.Point(127, 3);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(95, 78);
+			this.btnSave.TabIndex = 1;
+			this.btnSave.Text = "내보내기";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// btmOpenDb
+			// 
+			this.btmOpenDb.Enabled = false;
+			this.btmOpenDb.Location = new System.Drawing.Point(3, 3);
+			this.btmOpenDb.Name = "btmOpenDb";
+			this.btmOpenDb.Size = new System.Drawing.Size(98, 78);
+			this.btmOpenDb.TabIndex = 5;
+			this.btmOpenDb.Text = "열기\r\n(자동으로 만듦)\r\n";
+			this.btmOpenDb.UseVisualStyleBackColor = true;
+			// 
+			// prgWorking
+			// 
+			this.prgWorking.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.prgWorking.Location = new System.Drawing.Point(3, 93);
+			this.prgWorking.Name = "prgWorking";
+			this.prgWorking.Size = new System.Drawing.Size(781, 24);
+			this.prgWorking.TabIndex = 2;
 			// 
 			// tableLayoutPanel3
 			// 
@@ -147,6 +160,7 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.Controls.Add(this.btnQueryInstance, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.btnTest, 4, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnQueryRoulette, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnQueryArea, 2, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnQueryFate, 3, 0);
@@ -211,15 +225,18 @@
 			this.dgvQuery.Size = new System.Drawing.Size(781, 415);
 			this.dgvQuery.TabIndex = 4;
 			// 
-			// btmOpenDb
+			// lstLang
 			// 
-			this.btmOpenDb.Enabled = false;
-			this.btmOpenDb.Location = new System.Drawing.Point(3, 3);
-			this.btmOpenDb.Name = "btmOpenDb";
-			this.btmOpenDb.Size = new System.Drawing.Size(98, 78);
-			this.btmOpenDb.TabIndex = 5;
-			this.btmOpenDb.Text = "열기\r\n(자동으로 만듦)\r\n";
-			this.btmOpenDb.UseVisualStyleBackColor = true;
+			this.lstLang.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lstLang.FormattingEnabled = true;
+			this.lstLang.Items.AddRange(new object[] {
+            "en",
+            "ja",
+            "ko"});
+			this.lstLang.Location = new System.Drawing.Point(358, 3);
+			this.lstLang.Name = "lstLang";
+			this.lstLang.Size = new System.Drawing.Size(74, 69);
+			this.lstLang.TabIndex = 6;
 			// 
 			// MainForm
 			// 
@@ -255,6 +272,7 @@
 		private System.Windows.Forms.Button btnQueryFate;
 		private System.Windows.Forms.DataGridView dgvQuery;
 		private System.Windows.Forms.Button btmOpenDb;
+		private System.Windows.Forms.ListBox lstLang;
 	}
 }
 
