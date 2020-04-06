@@ -31,18 +31,18 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.txtResult = new System.Windows.Forms.TextBox();
-			this.btnTest = new System.Windows.Forms.Button();
 			this.btnReadGameData = new System.Windows.Forms.Button();
 			this.btnSave = new System.Windows.Forms.Button();
 			this.btmOpenDb = new System.Windows.Forms.Button();
+			this.lstLang = new System.Windows.Forms.ListBox();
 			this.prgWorking = new System.Windows.Forms.ProgressBar();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnQueryInstance = new System.Windows.Forms.Button();
+			this.btnTest = new System.Windows.Forms.Button();
 			this.btnQueryRoulette = new System.Windows.Forms.Button();
 			this.btnQueryArea = new System.Windows.Forms.Button();
 			this.btnQueryFate = new System.Windows.Forms.Button();
 			this.dgvQuery = new System.Windows.Forms.DataGridView();
-			this.lstLang = new System.Windows.Forms.ListBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -103,16 +103,6 @@
 			this.txtResult.Size = new System.Drawing.Size(213, 78);
 			this.txtResult.TabIndex = 4;
 			// 
-			// btnTest
-			// 
-			this.btnTest.Location = new System.Drawing.Point(323, 3);
-			this.btnTest.Name = "btnTest";
-			this.btnTest.Size = new System.Drawing.Size(63, 38);
-			this.btnTest.TabIndex = 2;
-			this.btnTest.Text = "이거슨 테스트!";
-			this.btnTest.UseVisualStyleBackColor = true;
-			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-			// 
 			// btnReadGameData
 			// 
 			this.btnReadGameData.Location = new System.Drawing.Point(228, 3);
@@ -142,6 +132,21 @@
 			this.btmOpenDb.TabIndex = 5;
 			this.btmOpenDb.Text = "열기\r\n(자동으로 만듦)\r\n";
 			this.btmOpenDb.UseVisualStyleBackColor = true;
+			// 
+			// lstLang
+			// 
+			this.lstLang.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lstLang.FormattingEnabled = true;
+			this.lstLang.Items.AddRange(new object[] {
+            "en",
+            "ja",
+            "ko",
+            "fr",
+            "de"});
+			this.lstLang.Location = new System.Drawing.Point(358, 3);
+			this.lstLang.Name = "lstLang";
+			this.lstLang.Size = new System.Drawing.Size(74, 69);
+			this.lstLang.TabIndex = 6;
 			// 
 			// prgWorking
 			// 
@@ -182,6 +187,16 @@
 			this.btnQueryInstance.Text = "Instance";
 			this.btnQueryInstance.UseVisualStyleBackColor = true;
 			this.btnQueryInstance.Click += new System.EventHandler(this.btnQueryInstance_Click);
+			// 
+			// btnTest
+			// 
+			this.btnTest.Location = new System.Drawing.Point(323, 3);
+			this.btnTest.Name = "btnTest";
+			this.btnTest.Size = new System.Drawing.Size(63, 38);
+			this.btnTest.TabIndex = 2;
+			this.btnTest.Text = "이거슨 테스트!";
+			this.btnTest.UseVisualStyleBackColor = true;
+			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
 			// 
 			// btnQueryRoulette
 			// 
@@ -224,19 +239,6 @@
 			this.dgvQuery.Name = "dgvQuery";
 			this.dgvQuery.Size = new System.Drawing.Size(781, 415);
 			this.dgvQuery.TabIndex = 4;
-			// 
-			// lstLang
-			// 
-			this.lstLang.Dock = System.Windows.Forms.DockStyle.Top;
-			this.lstLang.FormattingEnabled = true;
-			this.lstLang.Items.AddRange(new object[] {
-            "en",
-            "ja",
-            "ko"});
-			this.lstLang.Location = new System.Drawing.Point(358, 3);
-			this.lstLang.Name = "lstLang";
-			this.lstLang.Size = new System.Drawing.Size(74, 69);
-			this.lstLang.TabIndex = 6;
 			// 
 			// MainForm
 			// 

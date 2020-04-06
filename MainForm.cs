@@ -205,7 +205,7 @@ namespace ACT.DFAssist.Data
 				InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
 				AddExtension = true,
 				OverwritePrompt = false,
-				FileName = $"asst.{l}.json",
+				FileName = $"dfas.{l}.json",
 			};
 
 			if (dlg.ShowDialog() == DialogResult.OK)
